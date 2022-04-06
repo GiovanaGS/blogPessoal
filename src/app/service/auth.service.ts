@@ -32,6 +32,10 @@ return this.http.post<UsuarioLogin>('https://blogpessoalthiago.herokuapp.com/usu
 return this.http.post<Usuario>('https://blogpessoalthiago.herokuapp.com/usuarios/cadastrar',usuario)
   }
 
+  atualizar(usuario: Usuario): Observable<Usuario>{
+    return this.http.put<Usuario>('https://blogpessoalthiago.herokuapp.com/usuarios/atualizar',usuario, this.token)
+      }
+
   getByIdUser(id:number): Observable<Usuario>{
     return this.http.get<Usuario>(`https://blogpessoalthiago.herokuapp.com/usuarios/${id}`,this.token)
   }
