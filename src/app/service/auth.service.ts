@@ -49,4 +49,14 @@ return this.http.post<Usuario>('https://blogpessoalthiago.herokuapp.com/usuarios
 
     return ok
   }
+
+  adm(){
+    let ok:boolean = false
+
+    if(environment.tipo == 'adm'){
+      ok = true
+    }
+
+    return ok
+  }
 }

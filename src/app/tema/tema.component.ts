@@ -16,14 +16,19 @@ export class TemaComponent implements OnInit {
   listaTemas: Tema[]
 
   constructor(
-    private route: Router,
+    private router: Router,
     private temaService: TemaService,
     private alertas: AlertasService,
   ) { }
 
   ngOnInit() {
     if(environment.token == ''){
-      this.route.navigate(['/entrar'])
+      this.router.navigate(['/entrar'])
+    }
+
+    if(environment.tipo != 'adm'){
+      this.alertas.showAlerInfo('Você precisa ser adm para acessar essa rota')
+      this.router.navigate(['/inicio'])
     }
 
     this.findAllTemas()
